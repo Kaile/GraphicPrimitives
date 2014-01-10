@@ -13,12 +13,8 @@
 *.a
 
 .*
-*.~h
-*.~cpp
-*.~obj
-*.~dfm
+*.~*
 *.exe
 *.res
-*.~ddp
 *.ddp
 *.tds
