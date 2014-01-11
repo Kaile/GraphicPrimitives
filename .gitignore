@@ -1,0 +1,20 @@
+# Compiled Object files
+*.slo
+*.lo
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+.*
+*.~*
+*.exe
+*.res
+*.ddp
+*.tds
