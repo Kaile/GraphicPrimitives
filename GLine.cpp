@@ -7,6 +7,7 @@
 
 GLine::GLine(TForm* f) : GPrimitive(f)
 {
+    strName = "Line";
 }
 
 GLine::~GLine()

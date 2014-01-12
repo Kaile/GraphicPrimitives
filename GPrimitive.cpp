@@ -18,7 +18,8 @@ GPrimitive::GPrimitive(TForm* f)
     position[4] = 0;
     form->Canvas->Pen->Color = color = (TColor)RGB(255, 0, 0);
     style = psSolid;
-    form->Canvas->Pen->Width = 1;    
+    form->Canvas->Pen->Width = 1;
+    strName = "Graphic Primitive";
 }
 
 GPrimitive::~GPrimitive()
@@ -95,3 +96,7 @@ int GPrimitive::getWidth()
     return width;
 }
 
+String GPrimitive::getStringName()
+{
+    return strName;
+}

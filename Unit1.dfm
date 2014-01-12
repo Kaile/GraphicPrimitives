@@ -213,14 +213,58 @@ object Form1: TForm1
       #1055#1088#1103#1084#1086#1091#1075#1086#1083#1100#1085#1080#1082
       #1069#1083#1083#1080#1087#1089)
   end
-  object ListPrimitiveElements: TListBox
-    Left = 232
-    Top = 42
+  object ButtonDelete: TButton
+    Left = 234
+    Top = 290
     Width = 171
-    Height = 233
-    Columns = 1
-    ItemHeight = 13
-    MultiSelect = True
+    Height = 25
+    Caption = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1073#1088#1072#1085#1085#1099#1077' '#1101#1083#1077#1084#1077#1085#1090#1099
     TabOrder = 13
+    OnClick = ButtonDeleteClick
+  end
+  object ButtonMove: TButton
+    Left = 234
+    Top = 366
+    Width = 171
+    Height = 25
+    Caption = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100' '#1101#1083#1077#1084#1077#1085#1090'('#1099')'
+    TabOrder = 14
+    OnClick = ButtonMoveClick
+  end
+  object CheckListPrimitiveElements: TCheckListBox
+    Left = 230
+    Top = 36
+    Width = 173
+    Height = 239
+    ItemHeight = 13
+    TabOrder = 15
+  end
+  object LabeledEditMoveX: TLabeledEdit
+    Left = 236
+    Top = 334
+    Width = 37
+    Height = 21
+    EditLabel.Width = 76
+    EditLabel.Height = 13
+    EditLabel.Caption = #1057#1084#1077#1097#1077#1085#1080#1077' '#1087#1086' X'
+    LabelPosition = lpAbove
+    LabelSpacing = 3
+    TabOrder = 16
+    Text = '10'
+    OnClick = LabeledEditMoveXClick
+  end
+  object LabeledEditMoveY: TLabeledEdit
+    Left = 328
+    Top = 334
+    Width = 35
+    Height = 21
+    EditLabel.Width = 76
+    EditLabel.Height = 13
+    EditLabel.Caption = #1057#1084#1077#1097#1077#1085#1080#1077' '#1087#1086' Y'
+    LabelPosition = lpAbove
+    LabelSpacing = 3
+    TabOrder = 17
+    Text = '10'
+    OnClick = LabeledEditMoveYClick
   end
 end

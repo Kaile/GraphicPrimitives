@@ -13,6 +13,7 @@ protected:
     TForm* form;
     TPenStyle style;
     int width;
+    String strName;
 public:
     GPrimitive(TForm* f);
     ~GPrimitive();
@@ -25,6 +26,7 @@ public:
     TPenStyle getStyle();
     void setWidth(int width);
     int getWidth();
+    virtual String getStringName();
 protected:
     virtual void paint() = 0;
 };

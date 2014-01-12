@@ -14,6 +14,7 @@
 #include "GEllipse.h"
 #include <vector.h>
 #include "Unit2.h"
+#include <CheckLst.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -39,8 +40,12 @@ __published:	// IDE-managed Components
     TEdit *EditX1;
     TButton *ButtonPaint;
     TComboBox *ComboBoxSelectPrimitive;
-    TListBox *ListPrimitiveElements;
     TLabel *Label9;
+    TButton *ButtonDelete;
+    TButton *ButtonMove;
+    TCheckListBox *CheckListPrimitiveElements;
+    TLabeledEdit *LabeledEditMoveX;
+    TLabeledEdit *LabeledEditMoveY;
 	void __fastcall EditX1Click(TObject *Sender);
     void __fastcall FormDestroy(TObject *Sender);
     void __fastcall Button2Click(TObject *Sender);
@@ -51,11 +56,17 @@ __published:	// IDE-managed Components
     void __fastcall ButtonPaintClick(TObject *Sender);
     void __fastcall ComboBoxSelectPrimitiveChange(TObject *Sender);
     void __fastcall FormCreate(TObject *Sender);
+    void __fastcall ButtonDeleteClick(TObject *Sender);
+    void __fastcall ButtonMoveClick(TObject *Sender);
+    void __fastcall LabeledEditMoveYClick(TObject *Sender);
+    void __fastcall LabeledEditMoveXClick(TObject *Sender);
 private:	// User declarations
 	vector<GPrimitive*>* primitive;
 private:
     void __fastcall showElement(GPrimitive* p);
-    void __fastcall updateListPrimitivesElements();
+    void __fastcall updateCheckListPrimitiveElements();
+    void __fastcall deletePrimitiveElement(int i);
+    void __fastcall movePrimitiveElement(int i);
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 

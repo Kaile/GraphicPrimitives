@@ -68,7 +68,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         }
     }
     Form2->Refresh();
-    updateListPrimitivesElements();
+    updateCheckListPrimitiveElements();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::EditX1Click(TObject *Sender)
@@ -107,7 +107,7 @@ void __fastcall TForm1::ButtonPaintClick(TObject *Sender)
       case 3: showElement(new GEllipse(Form2));
       break;
     }
-    updateListPrimitivesElements();
+    updateCheckListPrimitiveElements();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ComboBoxSelectPrimitiveChange(TObject *Sender)
@@ -128,11 +128,67 @@ void __fastcall TForm1::ComboBoxSelectPrimitiveChange(TObject *Sender)
     }
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::updateListPrimitivesElements()
+void __fastcall TForm1::updateCheckListPrimitiveElements()
 {
-    ListPrimitiveElements->Clear();
+    CheckListPrimitiveElements->Items->Clear();
     for (vector<GPrimitive*>::iterator i = primitive->begin(); i != primitive->end(); ++i)
     {
-        ListPrimitiveElements->Items->Add("Element");
+        CheckListPrimitiveElements->Items->Add(  
+                                            IntToStr(CheckListPrimitiveElements->Items->Count) + 
+                                            " " + 
+                                            (*i)->getStringName()
+                                          );
     }
 }
+//---------------------------------------------------------------------------
+void __fastcall TForm1::ButtonDeleteClick(TObject *Sender)
+{
+    for (int i = CheckListPrimitiveElements->Items->Count - 1; i >= 0 ; --i)
+    {
+        if (CheckListPrimitiveElements->Checked[i])
+        {
+            deletePrimitiveElement(i);
+        }
+    }
+    updateCheckListPrimitiveElements();
+    Form2->Refresh();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::deletePrimitiveElement(int i)
+{
+    delete primitive->at(i);
+    primitive->erase(primitive->begin() + i);
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::ButtonMoveClick(TObject *Sender)
+{
+    for (int i = CheckListPrimitiveElements->Items->Count - 1; i >= 0 ; --i)
+    {
+        if (CheckListPrimitiveElements->Checked[i])
+        {
+            movePrimitiveElement(i);
+        }
+    }
+    Form2->Refresh(); 
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::movePrimitiveElement(int i)
+{
+    primitive->at(i)->move(
+                            LabeledEditMoveX->Text.ToInt(),
+                            LabeledEditMoveY->Text.ToInt()
+                          );
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::LabeledEditMoveYClick(TObject *Sender)
+{
+    LabeledEditMoveX->SelectAll();    
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::LabeledEditMoveXClick(TObject *Sender)
+{
+    LabeledEditMoveY->SelectAll();
+}
+//---------------------------------------------------------------------------
+

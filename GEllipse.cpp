@@ -6,6 +6,7 @@
 
 GEllipse::GEllipse(TForm* f) : GPrimitive(f)
 {
+    strName = "Ellipse";
 }
 
 GEllipse::~GEllipse()

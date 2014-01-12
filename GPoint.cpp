@@ -7,6 +7,7 @@
 
 GPoint::GPoint(TForm* f) : GPrimitive(f)
 {
+    strName = "Point";
 }
 
 GPoint::~GPoint()

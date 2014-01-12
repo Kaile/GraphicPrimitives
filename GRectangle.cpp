@@ -6,6 +6,7 @@
 
 GRectangle::GRectangle(TForm* f) : GPrimitive(f)
 {
+    strName = "Rectangle";
 }
 
 GRectangle::~GRectangle()
