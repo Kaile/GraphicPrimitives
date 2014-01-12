@@ -32,7 +32,7 @@ __published:	// IDE-managed Components
 	TLabel *Label4;
     TColorBox *ColorBoxElement;
 	TLabel *Label6;
-    TMemo *MemoStatMsg;
+    TMemo *MemoTestMsg;
     TLabel *Label5;
     TEdit *EditWidth;
     TLabel *Label7;
@@ -50,6 +50,7 @@ __published:	// IDE-managed Components
     TCheckListBox *CheckListPrimitiveElements;
     TLabeledEdit *LabeledEditMoveX;
     TLabeledEdit *LabeledEditMoveY;
+    TButton *ButtonTesting;
 	void __fastcall EditX1Click(TObject *Sender);
     void __fastcall FormDestroy(TObject *Sender);
     void __fastcall Button2Click(TObject *Sender);
@@ -64,6 +65,7 @@ __published:	// IDE-managed Components
     void __fastcall ButtonMoveClick(TObject *Sender);
     void __fastcall LabeledEditMoveYClick(TObject *Sender);
     void __fastcall LabeledEditMoveXClick(TObject *Sender);
+    void __fastcall ButtonTestingClick(TObject *Sender);
 private:	// User declarations
 	vector<GPrimitive*>* primitive;
 private:
@@ -71,6 +73,7 @@ private:
     void __fastcall updateCheckListPrimitiveElements();
     void __fastcall deletePrimitiveElement(int i);
     void __fastcall movePrimitiveElement(int i);
+    void __fastcall testMethod(String m_name, String res_exp, String res_real, int &t_c, int &t_s, int &t_f);
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 

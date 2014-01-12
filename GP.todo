@@ -1,3 +1,5 @@
+{TODO 1 -oMihail Kornilov : Show testing results in message box.}
+{TODO 1 -oMihail Kornilov : Change methods resulting types for testing application.}
 
 {DONE 1 -oMihail Kornilov : Create a delete solution for graphic elements selected in ListBox}
 {DONE 1 -oMihail Kornilov : Create a toString method for detected string name of elements.}

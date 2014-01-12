@@ -1,9 +1,10 @@
 object Form1: TForm1
   Left = 850
   Top = 150
-  Width = 436
-  Height = 497
+  BorderStyle = bsDialog
   Caption = #1043#1088#1072#1092#1080#1095#1077#1089#1082#1080#1077' '#1087#1088#1080#1084#1080#1090#1080#1074#1099
+  ClientHeight = 312
+  ClientWidth = 420
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -52,11 +53,12 @@ object Form1: TForm1
     Caption = #1062#1074#1077#1090' '#1101#1083#1077#1084#1077#1085#1090#1072
   end
   object Label5: TLabel
-    Left = 14
-    Top = 284
-    Width = 123
+    Left = 16
+    Top = 286
+    Width = 163
     Height = 13
-    Caption = #1057#1086#1086#1073#1097#1077#1085#1080#1103' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1103
+    Caption = #1057#1086#1086#1073#1097#1077#1085#1080#1103' '#1090#1077#1089#1090#1086#1074#1086#1075#1086' '#1079#1072#1087#1091#1089#1082#1072' :'
+    Visible = False
   end
   object Label7: TLabel
     Left = 122
@@ -117,13 +119,21 @@ object Form1: TForm1
     ItemHeight = 16
     TabOrder = 3
   end
-  object MemoStatMsg: TMemo
-    Left = 14
-    Top = 304
-    Width = 203
-    Height = 145
+  object MemoTestMsg: TMemo
+    Left = 16
+    Top = 306
+    Width = 393
+    Height = 155
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
+    ScrollBars = ssVertical
     TabOrder = 4
+    Visible = False
   end
   object EditWidth: TEdit
     Left = 150
@@ -214,8 +224,8 @@ object Form1: TForm1
       #1069#1083#1083#1080#1087#1089)
   end
   object ButtonDelete: TButton
-    Left = 234
-    Top = 290
+    Left = 230
+    Top = 166
     Width = 171
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100' '#1074#1099#1073#1088#1072#1085#1085#1099#1077' '#1101#1083#1077#1084#1077#1085#1090#1099
@@ -223,8 +233,8 @@ object Form1: TForm1
     OnClick = ButtonDeleteClick
   end
   object ButtonMove: TButton
-    Left = 234
-    Top = 366
+    Left = 230
+    Top = 236
     Width = 171
     Height = 25
     Caption = #1055#1077#1088#1077#1084#1077#1089#1090#1080#1090#1100' '#1101#1083#1077#1084#1077#1085#1090'('#1099')'
@@ -235,13 +245,13 @@ object Form1: TForm1
     Left = 230
     Top = 36
     Width = 173
-    Height = 239
+    Height = 121
     ItemHeight = 13
     TabOrder = 15
   end
   object LabeledEditMoveX: TLabeledEdit
-    Left = 236
-    Top = 334
+    Left = 232
+    Top = 210
     Width = 37
     Height = 21
     EditLabel.Width = 76
@@ -254,8 +264,8 @@ object Form1: TForm1
     OnClick = LabeledEditMoveXClick
   end
   object LabeledEditMoveY: TLabeledEdit
-    Left = 328
-    Top = 334
+    Left = 324
+    Top = 210
     Width = 35
     Height = 21
     EditLabel.Width = 76
@@ -266,5 +276,14 @@ object Form1: TForm1
     TabOrder = 17
     Text = '10'
     OnClick = LabeledEditMoveYClick
+  end
+  object ButtonTesting: TButton
+    Left = 229
+    Top = 272
+    Width = 172
+    Height = 27
+    Caption = #1042#1099#1087#1086#1083#1085#1080#1090#1100' '#1090#1077#1089#1090#1080#1088#1086#1074#1072#1085#1080#1077
+    TabOrder = 18
+    OnClick = ButtonTestingClick
   end
 end

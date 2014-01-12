@@ -30,7 +30,7 @@ void GPrimitive::setPosition(int x, ...)
 {
     int *p = &x;
     int count = 0;
-    while (*p && count < 5)
+    while (*p && count < 4)
     {
         position[count++] = *p++;
     }
@@ -46,13 +46,16 @@ TColor GPrimitive::getColor()
     return color;
 }
 
-void GPrimitive::move(int x_shift, int y_shift)
+bool GPrimitive::move(int x_shift, int y_shift)
 {
+    if ((position[0] + x_shift < 0) || (position[1] + y_shift < 0))
+        return false;
 	position[0] = position[0] + x_shift;
 	position[1] = position[1] + y_shift;
 	position[2] = position[2] + x_shift;
 	position[3] = position[3] + y_shift;
 	show();
+    return true;
 }
 
 void GPrimitive::show()
@@ -86,9 +89,12 @@ TPenStyle GPrimitive::getStyle()
     return style;
 }
 
-void GPrimitive::setWidth(int value)
+bool GPrimitive::setWidth(int value)
 {
+    if (value < 1 || value > 11)
+        return false;
     width = value;
+    return true;
 }
 
 int GPrimitive::getWidth()

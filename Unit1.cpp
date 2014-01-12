@@ -49,6 +49,7 @@ void __fastcall TForm1::showElement(GPrimitive* p)
     primitive->back()->setWidth(EditWidth->Text.ToInt());
     primitive->back()->setStyle((LineStyle->ItemIndex == 0) ? psSolid : (LineStyle->ItemIndex == 1) ? psDash : psDot);
     Form2->Refresh();
+    updateCheckListPrimitiveElements();
 }
 
 //---------------------------------------------------------------------------
@@ -107,7 +108,6 @@ void __fastcall TForm1::ButtonPaintClick(TObject *Sender)
       case 3: showElement(new GEllipse(Form2));
       break;
     }
-    updateCheckListPrimitiveElements();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ComboBoxSelectPrimitiveChange(TObject *Sender)
@@ -191,4 +191,70 @@ void __fastcall TForm1::LabeledEditMoveXClick(TObject *Sender)
     LabeledEditMoveY->SelectAll();
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::ButtonTestingClick(TObject *Sender)
+{
+    MemoTestMsg->Clear();
+    Button1->Click();
+    Label5->Show();
+    MemoTestMsg->Show();
+    Form1->Height = 500;
+    MemoTestMsg->Lines->Add("Тестирование методов класса GPrimitive:");
+    MemoTestMsg->Lines->Add("---------------------------------------");
+    
+    int test_count   = 0;
+    int test_success = 0;
+    int test_fault   = 0;
+    String test_real = "";
+    
+    MemoTestMsg->Lines->Add("Создаем объект класса GLine");
+    showElement(new GLine(Form2));
+
+    // Тестирование метода move
+    bool tmp_bool = primitive->at(0)->move(10, 10);
+    test_real = (tmp_bool) ? "true" : "false";
+    testMethod("move(10, 10)", "true", test_real, test_count, test_success, test_fault);
+
+    tmp_bool = primitive->at(0)->move(-10000, 10);
+    test_real = (tmp_bool) ? "true" : "false";
+    testMethod("move(-10000, 10)", "false", test_real, test_count, test_success, test_fault);
+
+    // Тестирование метода setWidth
+    tmp_bool = primitive->at(0)->setWidth(7);
+    test_real = (tmp_bool) ? "true" : "false";
+    testMethod("setWidth(7)", "true", test_real, test_count, test_success, test_fault);
+
+    tmp_bool = primitive->at(0)->setWidth(-1);
+    test_real = (tmp_bool) ? "true" : "false";
+    testMethod("setWidth(-1)", "false", test_real, test_count, test_success, test_fault);
+
+    // Тестирование метода setColor
+    primitive->at(0)->setColor(clRed);
+    TColor tmp_color = primitive->at(0)->getColor();
+    test_real = (tmp_color == clRed) ? "clRed" : "error";
+    testMethod("setColor(clRed)", "clRed", test_real, test_count, test_success, test_fault);
+
+    // Тустирование метода setStyle
+    primitive->at(0)->setStyle(psDash);
+    TPenStyle tmp_style = primitive->at(0)->getStyle();
+    test_real = (tmp_style == psDash) ? "psDash" : "error";
+    testMethod("setStyle(psDash)", "psDash", test_real, test_count, test_success, test_fault);
+
+    // Подведение итогов
+    MemoTestMsg->Lines->Add("---------------------------------------");
+    MemoTestMsg->Lines->Add("ИТОГИ ТЕСТИРОВАНИЯ:");
+    MemoTestMsg->Lines->Add("   Количество выполненных тестов: " + IntToStr(test_count));
+    MemoTestMsg->Lines->Add("   Количество успешных тестов   : " + IntToStr(test_success));
+    MemoTestMsg->Lines->Add("   Количество неверных тестов   : " + IntToStr(test_fault));
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::testMethod(String m_name, String res_exp, String res_real, int &t_c, int &t_s, int &t_f)
+{
+    MemoTestMsg->Lines->Add("   Тестирование метода " + m_name);
+    MemoTestMsg->Lines->Add("       Ожидаемый результат = " + res_exp);
+    MemoTestMsg->Lines->Add("       Результат тестирования = " + res_real);
+    ++t_c;
+    (res_exp == res_real) ? ++t_s : ++t_f;
+    Form2->Refresh();
+}
 
