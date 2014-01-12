@@ -18,10 +18,6 @@
 class TForm1 : public TForm
 {
 __published:	// IDE-managed Components
-	TButton *ButtonLine;
-	TButton *ButtonPoint;
-	TButton *ButtonEllipse;
-	TButton *ButtonRectangle;
 	TEdit *EditY1;
 	TEdit *EditX2;
 	TEdit *EditY2;
@@ -41,17 +37,18 @@ __published:	// IDE-managed Components
     TComboBox *LineStyle;
     TLabel *Label8;
     TEdit *EditX1;
+    TButton *ButtonPaint;
+    TComboBox *ComboBoxSelectPrimitive;
 	void __fastcall EditX1Click(TObject *Sender);
-    void __fastcall ButtonLineClick(TObject *Sender);
     void __fastcall FormDestroy(TObject *Sender);
-    void __fastcall ButtonEllipseClick(TObject *Sender);
-    void __fastcall ButtonPointClick(TObject *Sender);
-    void __fastcall ButtonRectangleClick(TObject *Sender);
     void __fastcall Button2Click(TObject *Sender);
     void __fastcall Button1Click(TObject *Sender);
     void __fastcall EditX2Click(TObject *Sender);
     void __fastcall EditY1Click(TObject *Sender);
     void __fastcall EditY2Click(TObject *Sender);
+    void __fastcall ButtonPaintClick(TObject *Sender);
+    void __fastcall ComboBoxSelectPrimitiveChange(TObject *Sender);
+    void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 	vector<GPrimitive*>* primitive;
 private:

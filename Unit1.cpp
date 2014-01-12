@@ -15,19 +15,14 @@ __fastcall TForm1::TForm1(TComponent* Owner)
     primitive = new vector<GPrimitive*>;
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::EditX1Click(TObject *Sender)
+void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-	this->EditX1->SelectAll();
+    Label2->Hide();
+    Label4->Hide();
+    EditX2->Hide();
+    EditY2->Hide();
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TForm1::ButtonLineClick(TObject *Sender)
-{
-    showElement(new GLine(Form2));
-    Form2->Refresh();
-}
-//---------------------------------------------------------------------------
-
 void __fastcall TForm1::FormDestroy(TObject *Sender)
 {
     if (primitive)
@@ -41,54 +36,32 @@ void __fastcall TForm1::FormDestroy(TObject *Sender)
     }
 }
 //---------------------------------------------------------------------------
-
-void __fastcall TForm1::ButtonEllipseClick(TObject *Sender)
-{
-    showElement(new GEllipse(Form2));
-    Form2->Refresh();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::ButtonPointClick(TObject *Sender)
-{
-    showElement(new GPoint(Form2));
-    Form2->Refresh();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::ButtonRectangleClick(TObject *Sender)
-{
-    showElement(new GRectangle(Form2));
-    Form2->Refresh();
-}
-//---------------------------------------------------------------------------
-
 void __fastcall TForm1::showElement(GPrimitive* p)
 {
     primitive->push_back(p);
-    primitive->back()->setPosition( 
-                                    EditX1->Text.ToInt(), 
-                                    EditY1->Text.ToInt(), 
-                                    EditX2->Text.ToInt(), 
+    primitive->back()->setPosition(
+                                    EditX1->Text.ToInt(),
+                                    EditY1->Text.ToInt(),
+                                    EditX2->Text.ToInt(),
                                     EditY2->Text.ToInt()
                                   );
     primitive->back()->setColor(ColorBoxElement->Selected);
     primitive->back()->setWidth(EditWidth->Text.ToInt());
     primitive->back()->setStyle((LineStyle->ItemIndex == 0) ? psSolid : (LineStyle->ItemIndex == 1) ? psDash : psDot);
-    Refresh();
+    Form2->Refresh();
 }
 
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-    Close();    
+    Close();
 }
 //---------------------------------------------------------------------------
 
 
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-    if (primitive) 
+    if (primitive)
     {
         while (!primitive->empty())
         {
@@ -99,22 +72,63 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
     Form2->Refresh();
 }
 //---------------------------------------------------------------------------
-
+void __fastcall TForm1::EditX1Click(TObject *Sender)
+{
+	this->EditX1->SelectAll();
+}
+//---------------------------------------------------------------------------
 void __fastcall TForm1::EditX2Click(TObject *Sender)
 {
-    this->EditX2->SelectAll();  
+    this->EditX2->SelectAll();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::EditY1Click(TObject *Sender)
 {
-    this->EditY1->SelectAll();    
+    this->EditY1->SelectAll();
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::EditY2Click(TObject *Sender)
 {
-    this->EditY2->SelectAll();    
+    this->EditY2->SelectAll();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ButtonPaintClick(TObject *Sender)
+{
+    switch (ComboBoxSelectPrimitive->ItemIndex)
+    {
+      case 0: showElement(new GPoint(Form2));
+      break;
+      case 1: showElement(new GLine(Form2));
+      break;
+      case 2: showElement(new GRectangle(Form2));
+      break;
+      case 3: showElement(new GEllipse(Form2));
+      break;
+      case 4: ;
+    }
+
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::ComboBoxSelectPrimitiveChange(TObject *Sender)
+{
+    if (ComboBoxSelectPrimitive->ItemIndex == 0)
+    {
+        Label2->Hide();
+        Label4->Hide();
+        EditX2->Hide();
+        EditY2->Hide();
+    }
+    else
+    {
+        Label2->Show();
+        Label4->Show();
+        EditX2->Show();
+        EditY2->Show();
+    }
 }
 //---------------------------------------------------------------------------
 

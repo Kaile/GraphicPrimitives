@@ -12,6 +12,7 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Visible = True
+  OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
@@ -66,46 +67,10 @@ object Form1: TForm1
   end
   object Label8: TLabel
     Left = 33
-    Top = 318
+    Top = 320
     Width = 35
     Height = 13
     Caption = #1057#1090#1080#1083#1100':'
-  end
-  object ButtonLine: TButton
-    Left = 10
-    Top = 172
-    Width = 90
-    Height = 25
-    Caption = #1051#1080#1085#1080#1103
-    TabOrder = 0
-    OnClick = ButtonLineClick
-  end
-  object ButtonPoint: TButton
-    Left = 10
-    Top = 219
-    Width = 90
-    Height = 25
-    Caption = #1058#1086#1095#1082#1072
-    TabOrder = 1
-    OnClick = ButtonPointClick
-  end
-  object ButtonEllipse: TButton
-    Left = 114
-    Top = 172
-    Width = 90
-    Height = 25
-    Caption = #1069#1083#1083#1080#1087#1089
-    TabOrder = 2
-    OnClick = ButtonEllipseClick
-  end
-  object ButtonRectangle: TButton
-    Left = 114
-    Top = 220
-    Width = 90
-    Height = 25
-    Caption = #1055#1088#1103#1084#1086#1091#1075#1086#1083#1100#1085#1080#1082
-    TabOrder = 3
-    OnClick = ButtonRectangleClick
   end
   object EditY1: TEdit
     Left = 48
@@ -113,7 +78,7 @@ object Form1: TForm1
     Width = 30
     Height = 21
     MaxLength = 3
-    TabOrder = 4
+    TabOrder = 0
     Text = '100'
     OnClick = EditY1Click
   end
@@ -123,7 +88,7 @@ object Form1: TForm1
     Width = 30
     Height = 21
     MaxLength = 3
-    TabOrder = 5
+    TabOrder = 1
     Text = '200'
     OnClick = EditX2Click
   end
@@ -133,25 +98,25 @@ object Form1: TForm1
     Width = 30
     Height = 21
     MaxLength = 3
-    TabOrder = 6
+    TabOrder = 2
     Text = '300'
     OnClick = EditY2Click
   end
   object ColorBoxElement: TColorBox
-    Left = 12
+    Left = 16
     Top = 132
-    Width = 115
+    Width = 111
     Height = 22
     ItemHeight = 16
-    TabOrder = 7
+    TabOrder = 3
   end
   object MemoStatMsg: TMemo
     Left = 14
     Top = 366
-    Width = 193
-    Height = 69
+    Width = 203
+    Height = 83
     ReadOnly = True
-    TabOrder = 8
+    TabOrder = 4
   end
   object EditWidth: TEdit
     Left = 150
@@ -159,7 +124,7 @@ object Form1: TForm1
     Width = 25
     Height = 21
     ReadOnly = True
-    TabOrder = 9
+    TabOrder = 5
     Text = '1'
   end
   object UpDown1: TUpDown
@@ -171,36 +136,36 @@ object Form1: TForm1
     Min = 1
     Max = 10
     Position = 1
-    TabOrder = 10
+    TabOrder = 6
     Wrap = False
   end
   object Button1: TButton
-    Left = 12
+    Left = 24
     Top = 268
-    Width = 89
+    Width = 97
     Height = 25
     Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1092#1086#1088#1084#1091
-    TabOrder = 11
+    TabOrder = 7
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 116
+    Left = 136
     Top = 268
-    Width = 89
+    Width = 81
     Height = 25
     Caption = #1042#1099#1093#1086#1076
-    TabOrder = 12
+    TabOrder = 8
     OnClick = Button2Click
   end
   object LineStyle: TComboBox
-    Left = 102
+    Left = 104
     Top = 316
-    Width = 105
+    Width = 113
     Height = 21
     BevelInner = bvNone
     ItemHeight = 13
     ItemIndex = 0
-    TabOrder = 13
+    TabOrder = 9
     Text = #1057#1087#1083#1086#1096#1085#1072#1103
     Items.Strings = (
       #1057#1087#1083#1086#1096#1085#1072#1103
@@ -212,8 +177,33 @@ object Form1: TForm1
     Top = 36
     Width = 30
     Height = 21
-    TabOrder = 14
+    TabOrder = 10
     Text = '100'
     OnClick = EditX1Click
+  end
+  object ButtonPaint: TButton
+    Left = 136
+    Top = 174
+    Width = 81
+    Height = 25
+    Caption = #1053#1072#1088#1080#1089#1086#1074#1072#1090#1100
+    TabOrder = 11
+    OnClick = ButtonPaintClick
+  end
+  object ComboBoxSelectPrimitive: TComboBox
+    Left = 16
+    Top = 176
+    Width = 113
+    Height = 21
+    ItemHeight = 13
+    ItemIndex = 0
+    TabOrder = 12
+    Text = #1058#1086#1095#1082#1072
+    OnChange = ComboBoxSelectPrimitiveChange
+    Items.Strings = (
+      #1058#1086#1095#1082#1072
+      #1051#1080#1085#1080#1103
+      #1055#1088#1103#1084#1086#1091#1075#1086#1083#1100#1085#1080#1082
+      #1069#1083#1083#1080#1087#1089)
   end
 end
