@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 1000
+  Left = 850
   Top = 150
-  Width = 250
-  Height = 484
+  Width = 436
+  Height = 497
   Caption = #1043#1088#1072#1092#1080#1095#1077#1089#1082#1080#1077' '#1087#1088#1080#1084#1080#1090#1080#1074#1099
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -53,7 +53,7 @@ object Form1: TForm1
   end
   object Label5: TLabel
     Left = 14
-    Top = 348
+    Top = 284
     Width = 123
     Height = 13
     Caption = #1057#1086#1086#1073#1097#1077#1085#1080#1103' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1103
@@ -66,11 +66,18 @@ object Form1: TForm1
     Caption = #1058#1086#1083#1097#1080#1085#1072' '#1088#1080#1089#1086#1074#1072#1085#1080#1103
   end
   object Label8: TLabel
-    Left = 33
-    Top = 320
+    Left = 49
+    Top = 256
     Width = 35
     Height = 13
     Caption = #1057#1090#1080#1083#1100':'
+  end
+  object Label9: TLabel
+    Left = 230
+    Top = 16
+    Width = 165
+    Height = 13
+    Caption = #1057#1087#1080#1089#1086#1082' '#1075#1088#1072#1092#1080#1095#1077#1089#1082#1080#1093' '#1101#1083#1077#1084#1077#1085#1090#1086#1074':'
   end
   object EditY1: TEdit
     Left = 48
@@ -112,9 +119,9 @@ object Form1: TForm1
   end
   object MemoStatMsg: TMemo
     Left = 14
-    Top = 366
+    Top = 304
     Width = 203
-    Height = 83
+    Height = 145
     ReadOnly = True
     TabOrder = 4
   end
@@ -141,7 +148,7 @@ object Form1: TForm1
   end
   object Button1: TButton
     Left = 24
-    Top = 268
+    Top = 212
     Width = 97
     Height = 25
     Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1092#1086#1088#1084#1091
@@ -150,7 +157,7 @@ object Form1: TForm1
   end
   object Button2: TButton
     Left = 136
-    Top = 268
+    Top = 212
     Width = 81
     Height = 25
     Caption = #1042#1099#1093#1086#1076
@@ -159,7 +166,7 @@ object Form1: TForm1
   end
   object LineStyle: TComboBox
     Left = 104
-    Top = 316
+    Top = 252
     Width = 113
     Height = 21
     BevelInner = bvNone
@@ -205,5 +212,15 @@ object Form1: TForm1
       #1051#1080#1085#1080#1103
       #1055#1088#1103#1084#1086#1091#1075#1086#1083#1100#1085#1080#1082
       #1069#1083#1083#1080#1087#1089)
+  end
+  object ListPrimitiveElements: TListBox
+    Left = 232
+    Top = 42
+    Width = 171
+    Height = 233
+    Columns = 1
+    ItemHeight = 13
+    MultiSelect = True
+    TabOrder = 13
   end
 end

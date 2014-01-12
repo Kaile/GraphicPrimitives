@@ -39,6 +39,8 @@ __published:	// IDE-managed Components
     TEdit *EditX1;
     TButton *ButtonPaint;
     TComboBox *ComboBoxSelectPrimitive;
+    TListBox *ListPrimitiveElements;
+    TLabel *Label9;
 	void __fastcall EditX1Click(TObject *Sender);
     void __fastcall FormDestroy(TObject *Sender);
     void __fastcall Button2Click(TObject *Sender);
@@ -53,6 +55,7 @@ private:	// User declarations
 	vector<GPrimitive*>* primitive;
 private:
     void __fastcall showElement(GPrimitive* p);
+    void __fastcall updateListPrimitivesElements();
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 

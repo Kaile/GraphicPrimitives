@@ -1,5 +1,5 @@
 object Form2: TForm2
-  Left = 238
+  Left = 100
   Top = 158
   BorderStyle = bsDialog
   Caption = 'Graphic Primitive'#39's Canvas'

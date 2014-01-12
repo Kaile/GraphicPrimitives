@@ -57,8 +57,6 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
     Close();
 }
 //---------------------------------------------------------------------------
-
-
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
     if (primitive)
@@ -70,6 +68,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
         }
     }
     Form2->Refresh();
+    updateListPrimitivesElements();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::EditX1Click(TObject *Sender)
@@ -107,10 +106,8 @@ void __fastcall TForm1::ButtonPaintClick(TObject *Sender)
       break;
       case 3: showElement(new GEllipse(Form2));
       break;
-      case 4: ;
     }
-
-
+    updateListPrimitivesElements();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ComboBoxSelectPrimitiveChange(TObject *Sender)
@@ -131,4 +128,11 @@ void __fastcall TForm1::ComboBoxSelectPrimitiveChange(TObject *Sender)
     }
 }
 //---------------------------------------------------------------------------
-
+void __fastcall TForm1::updateListPrimitivesElements()
+{
+    ListPrimitiveElements->Clear();
+    for (vector<GPrimitive*>::iterator i = primitive->begin(); i != primitive->end(); ++i)
+    {
+        ListPrimitiveElements->Items->Add("Element");
+    }
+}
