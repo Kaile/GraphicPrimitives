@@ -210,8 +210,17 @@ void __fastcall TForm1::ButtonTestingClick(TObject *Sender)
     MemoTestMsg->Lines->Add("Создаем объект класса GLine");
     showElement(new GLine(Form2));
 
+    // Тестирование метода setPosition
+    bool tmp_bool = primitive->at(0)->setPosition(100, 100, 200, 200);
+    test_real = (tmp_bool) ? "true" : "false";
+    testMethod("setPosition(100, 100, 200, 200)", "true", test_real, test_count, test_success, test_fault);
+
+    tmp_bool = primitive->at(0)->setPosition(-100, -100, 200, 200);
+    test_real = (tmp_bool) ? "true" : "false";
+    testMethod("setPosition(-100, -100, 200, 200)", "false", test_real, test_count, test_success, test_fault);
+
     // Тестирование метода move
-    bool tmp_bool = primitive->at(0)->move(10, 10);
+    tmp_bool = primitive->at(0)->move(10, 10);
     test_real = (tmp_bool) ? "true" : "false";
     testMethod("move(10, 10)", "true", test_real, test_count, test_success, test_fault);
 

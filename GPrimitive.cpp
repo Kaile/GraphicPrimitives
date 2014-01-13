@@ -26,14 +26,17 @@ GPrimitive::~GPrimitive()
 {
 }
 
-void GPrimitive::setPosition(int x, ...)
+bool GPrimitive::setPosition(int x, ...)
 {
     int *p = &x;
+    if (*p <= 0 || *(p + 1) <= 0)
+        return false;
     int count = 0;
     while (*p && count < 4)
     {
         position[count++] = *p++;
     }
+    return true;
 }
 
 void GPrimitive::setColor(TColor clr)
